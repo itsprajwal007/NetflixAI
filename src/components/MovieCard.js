@@ -1,11 +1,12 @@
 import React from "react";
 import { IMG_CDN_URL } from "../utils/constants";
 
-const MovieCard = ({ posterPath }) => {
-  const fallbackImage = "https://www.2embed.cc/images/noposter.jpg"; //fallback image for missing poster
-  if (!posterPath) return null; //better way to handle poster not found
+const MovieCard = ({ posterPath, onClick }) => {
+  const fallbackImage = "https://www.2embed.cc/images/noposter.jpg"; // Fallback image for missing poster
+  if (!posterPath) return null; // Handle missing poster better
+
   return (
-    <div className="w-36 md:w-48 pr-4 cursor-pointer">
+    <div className="w-36 md:w-48 pr-4 cursor-pointer" onClick={onClick}>
       <img
         alt="Movie Card"
         src={posterPath ? IMG_CDN_URL + posterPath : fallbackImage}

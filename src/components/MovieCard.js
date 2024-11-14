@@ -5,7 +5,7 @@ const MovieCard = ({ posterPath }) => {
   const fallbackImage = "https://www.2embed.cc/images/noposter.jpg"; //fallback image for missing poster
   if (!posterPath) return null; //better way to handle poster not found
   return (
-    <div className="w-36 md:w-48 pr-4">
+    <div className="w-36 md:w-48 pr-4 cursor-pointer">
       <img
         alt="Movie Card"
         src={posterPath ? IMG_CDN_URL + posterPath : fallbackImage}

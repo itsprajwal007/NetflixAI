@@ -7,10 +7,10 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { BG_URL, USER_AVATAR } from "../utils/constants";
+
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -85,14 +85,18 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="relative h-screen">
       <Header />
-      <div className="absolute">
-        <img className="h-screen object-cover" src={BG_URL} alt="logo" />
+      <div className="absolute inset-0 z-0">
+        <img
+          className="w-full h-full object-cover"
+          src={BG_URL}
+          alt="background"
+        />
       </div>
       <form
         onClick={(e) => e.preventDefault()}
-        className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-full sm:w-10/12 md:w-7/12 lg:w-5/12 xl:w-4/12 absolute p-8 md:p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80 z-10"
       >
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
@@ -133,4 +137,5 @@ const Login = () => {
     </div>
   );
 };
+
 export default Login;
